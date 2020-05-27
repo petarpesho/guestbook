@@ -1,4 +1,4 @@
-##Guestbook Application
+## Guestbook Application
 
 ### Prerequisites
 
@@ -25,13 +25,13 @@ You can use the following endpoints with tools you like (for example Postman):
 
 - `POST /submit` - where users can submit feedback about their stay in imaginary hotel
   
-  Data that should be send by POST request:
+  Data that should be send by POST request in json format:
  
   ```
   {
-    "authorName": string,
-    "body": string,
-    "dateCreated": date
+    "authorName": "string",
+    "body": "string",
+    "dateCreated": "string"
   }
   ```
   
