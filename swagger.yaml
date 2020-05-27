@@ -1,0 +1,88 @@
+swagger: "2.0"
+info:
+  version: 0.0.1
+  title: Guestbook Application API
+  description: Produced by Scalefocus
+host: 'localhost:8080'
+basePath: '/'
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  basicAuth:
+    type: basic
+paths:
+  /submit:
+    post:
+      summary: Sends user feedback
+      description: Sends user feedback
+      parameters:
+        - in: body
+          name: feedback
+          description: User feedback
+          required: true
+          schema:
+            type: object
+            properties:
+              authorName:
+                type: string
+                required: true
+              body:
+                type: string
+                required: true
+              dateCreated:
+                type: string
+                required: true
+      responses:
+        '200':
+          description: Success
+        '400':
+          description: Bad Request
+        '500':
+          description: Internal Server Error
+  /feedback:
+    get:
+      summary: Get users feedbacks
+      description: Get all or filtered users feedback
+      parameters:
+        - in: header
+          name: Authorization
+          type: string
+        - in: query
+          name: name
+          type: string
+        - in: query
+          name: fromDate
+          type: string
+        - in: query
+          name: toDate
+          type: string
+        - in: query
+          name: content
+          type: string
+      security:
+        - basicAuth: []
+      responses:
+        '200':
+          description: Success
+          schema:
+            $ref: '#/definitions/Feedback'
+        '401':
+          description: Not Authorized
+        '500':
+          description: Internal Server Error
+definitions:
+  Feedback:
+    type: array
+    items:
+      type: object
+      properties:
+        authorName:
+          type: string
+        body:
+          type: string
+        dateCreated:
+          type: string

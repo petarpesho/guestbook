@@ -1,0 +1,26 @@
+{
+  "name": "guestbook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon -L app.js",
+    "unitTest": "tape test/unit/main.spec.js | tap-summary"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.17.1",
+    "http-status-codes": "1.4.0",
+    "moment": "2.26.0"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.4",
+    "sinon": "9.0.2",
+    "swagger-ui-express": "^4.1.4",
+    "tap-summary": "4.0.0",
+    "tape": "5.0.1",
+    "yamljs": "^0.3.0"
+  }
+}

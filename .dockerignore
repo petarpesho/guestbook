@@ -1,0 +1,7 @@
+node_modules
+.vagrant
+.idea
+.git
+package-lock.json
+Vagrantfile
+ubuntu-bionic-18.04-cloudimg-console.log
